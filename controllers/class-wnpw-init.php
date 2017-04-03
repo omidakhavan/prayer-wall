@@ -59,12 +59,21 @@ if ( ! class_exists( 'Wnpw_Init' ) ) {
 			 * Load Public includes
 			 */
 			require_once WNPW_DIR . 'includes/class-wnpw-public.php';
-
-			
+	
 			/**
 			 * Load Admin MetBox.
 			 */
 			require  WNPW_DIR . 'includes/class-wnpw-meta.php';
+
+			/**
+			 * Load public shortcode.
+			 */
+			require  WNPW_DIR . 'includes/class-wnpw-shortcode.php';
+
+			/**
+			 * Load public shortcode.
+			 */
+			require  WNPW_DIR . 'includes/class-wnpw-ajax.php';
 
 		}
 

@@ -30,9 +30,9 @@ class Wnpw_Public {
 
 		$this->plugin_name = 'wnpw-prayer-wall';
 		$this->version = WNPW_VER;
-		//add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
-
-
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+		$this->shortcode();
+		$this->ajax();
 	}
 
 	/**
@@ -42,9 +42,40 @@ class Wnpw_Public {
 	 */
 	public function enqueue() {
 
-		wp_enqueue_style( $this->plugin_name, WNPW_DIR . 'views/css/plugin-name-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, WNPW_URL . '/views/css/prayer-wall.css', array(), $this->version, 'all' );
 
-		wp_enqueue_script( $this->plugin_name, WNPW_DIR . 'views/js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, WNPW_URL . '/views/js/prayer-wall.js', array( 'jquery' ), $this->version, false );
+
+		wp_localize_script( $this->plugin_name ,  'wnpw' ,  array(
+			'close_praybox_button' => __( 'CLOSE YOUR PRAYER REQUEST ', 'wnpw' ),
+			'open_praybox_button'  => __( 'OPEN YOUR PRAYER REQUEST', 'wnpw' ),
+			'adminurl'			   =>	admin_url( 'admin-ajax.php' ),
+			'security'			   => wp_create_nonce( 'wnpw-ajax' )	
+		) );
+
+	}
+
+	/**
+	 * Create shortcode for front end.
+	 *
+	 * @since    1.0.0
+	 */
+	public function shortcode() {
+
+		$shortcode = new Wnpw_Shortcode;
+		$shortcode->init();
+
+	}
+
+	/**
+	 * Init ajax class for process.
+	 *
+	 * @since    1.0.0
+	 */
+	public function ajax() {
+
+		$ajax = new Wnpw_Ajax;
+		$ajax->init();
 
 	}
 }
