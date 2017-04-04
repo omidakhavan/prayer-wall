@@ -43,7 +43,7 @@ class Wnpw_Meta implements Wnpw_Meta_Box {
 		global $post;
 		
 		$values = get_post_meta( $post->ID , 'prayer-wall-info' );
-
+		$count  = get_post_meta( $post->ID , 'prayer-wall-count' );
 		wp_nonce_field( 'wbpw', 'wbpw_nonce' );
 		?>	
 		<div class="prayer_wall_container_backend">
@@ -61,6 +61,8 @@ class Wnpw_Meta implements Wnpw_Meta_Box {
 
 			<label for="prayer_request"><?php esc_html_e( 'Prayer Request:', 'wnpw' ); ?></label>
 			<textarea name="prayer_request" id="prayer_request" cols="100" rows="10"><?php echo isset($values['0']['4']) ? esc_textarea( $values['0']['4'] ) : ''; ?></textarea>
+
+			<input type="text" name="prayercount" id="prayercount" value="<?php echo isset($count['0']) ? esc_attr( $count['0'] ) : ''; ?>">
 		</div>
 		<style>
 			input , textarea {display: block; margin: 10px 0 10px;}
@@ -96,6 +98,7 @@ class Wnpw_Meta implements Wnpw_Meta_Box {
         array_push($arr, sanitize_text_field( $post['prayer_request'] ) );
 
 		update_post_meta( $post_id, 'prayer-wall-info', $arr );
+		update_post_meta( $post_id, 'prayer-wall-count', $post['prayercount'] );
 
 	}
 

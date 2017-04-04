@@ -14,13 +14,16 @@
 class Wnpw_Ajax {
 	
 	public function init() {
+		// process pray submit form
+		add_action('wp_ajax_wnpwall',array ( $this , 'ajaxwall' ) );
+		add_action('wp_ajax_nopriv_wnpwall',array ( $this , 'ajaxwall' ) );		
 
-		add_action('wp_ajax_wnpwall',array ( $this , 'ajax' ) );
-		add_action('wp_ajax_nopriv_wnpwall',array ( $this , 'ajax' ) );
-
+		// prayer button on form
+		add_action('wp_ajax_wnpwprayed',array ( $this , 'ajaxprayer' ) );
+		add_action('wp_ajax_nopriv_wnpwprayed',array ( $this , 'ajaxprayer' ) );
 	}
 
-	public function ajax(){
+	public function ajaxwall(){
 
 		// security check
 		check_ajax_referer( 'wnpw-ajax', 'security' );
@@ -41,6 +44,13 @@ class Wnpw_Ajax {
         array_push($arr, sanitize_text_field( $_POST['request'] ) );
 
 		update_post_meta( $postid, 'prayer-wall-info', $arr );
+	}
+
+	public function ajaxprayer(){
+		// security check
+		check_ajax_referer( 'wnpw-ajax', 'security' );
+		update_post_meta( sanitize_text_field( $_POST['post_id'] ) , 'prayer-wall-count', $_POST['number'] );
+
 	}
 
 }

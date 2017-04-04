@@ -73,9 +73,6 @@ class Wnpw_Shortcode {
 		);
 		$query = new WP_Query( $args );
 
-		// get prayer count
-		$prayed = '10';
-
 		//generetae excution
 		$out = '';
 		$out .= '<div class="pbx-req">';
@@ -86,7 +83,10 @@ class Wnpw_Shortcode {
 					$query->the_post();
 					global $post;
 					$values = get_post_meta( $post->ID , 'prayer-wall-info', true );
-
+					// get prayer count
+					$prayed = get_post_meta( $post->ID , 'prayer-wall-count', true );
+					$prayed = isset($prayed[0]) ? $prayed[0] : '0';
+					
 					$out .= '<div class="wm-prayer-container col-md-5">
 								<div class="wm-prayer-inner">
 									<h3><em> '. get_the_title() .' </em></h3>
@@ -97,7 +97,7 @@ class Wnpw_Shortcode {
 										</span>
 										<span class="num-prayers">
 											<i class="icon-profile-male"></i>
-											' . esc_html__( 'Prayed for '. $prayed . ' times','' ) . '
+											' . wp_kses( __( 'Prayed for <span class="wn-prayer-cont"> '. $prayed . ' </span> times','wnpw' ), array( 'span' => array( 'class' => array() ) ) ) . '
 										</span>
 									</div>
 									<article class="wm-prayer-request">
@@ -106,7 +106,7 @@ class Wnpw_Shortcode {
 									<span class="wm-prayer-request-name">
 										'. esc_attr( $values['0'] ) . esc_attr( $values['1'] ) .'
 									</span>
-									<a href="#" class="wm-pray-request-button">' . esc_attr__( 'Pray for this', 'wnpw' ). '</a>
+									<a href="#" class="wm-pray-request-button" data-post=" '. $post->ID .' " data-num="'. $prayed . '" >' . esc_attr__( 'Pray for this', 'wnpw' ). '</a>
 								<div>
 							<div>';
 				}

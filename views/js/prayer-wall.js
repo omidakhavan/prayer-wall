@@ -79,33 +79,44 @@ $(document).ready(function($) {
 				});
 			});
 
-		// $(".wm-pray-request-button").on('click', function(event) {
-		// 	event.preventDefault();
-		// 	var $this = $(this);
-		// 	$this.addClass('loading').text("Praying");
-		// 	var req = $this.attr('req');
-		// 	var number = parseInt($('.wn-prayer-cont').attr('num'),10);
+		// prayer button
+		$(".wm-pray-request-button").on('click', function(event) {
 
-		// 	$.ajax( {
-		// 		type: "POST",
-		// 		url: vision_church_localize.praybox,
-		// 		data : { action : 'praybox_church', req : req },
+			event.preventDefault();
 
-		// 		success: function(data) {
+			var $this = $(this);
+			$this.addClass('loading').text("Praying");
 
-		// 			setTimeout(function() {
-		// 				$this.removeClass('loading').text("I PRAYED FOR THIS");
-		// 				$('.wn-prayer-cont').text(number+1);
+			var number = $this.data('num');
+			var postid = $this.data('post');
+			var num = number + 1 ;
 
-		// 			}, 1000);
-		// 		},
-		// 		error: function(jqXHR, textStatus, errorThrown) {
-		// 			setTimeout(function(){
-		// 				$this.removeClass('loading').text("Pray For This");
-		// 			}, 1000);
-		// 		}
-		// 	});
-		// });
+			$.ajax( {
+				type: "POST",
+				url: wnpw.adminurl,
+				data : { 
+					action : 'wnpwprayed', 
+					security : wnpw.security,
+					post_id : postid,
+					number : num
+				},
+
+				success: function(data) {
+
+					setTimeout(function() {
+						$this.removeClass('loading').text("I PRAYED FOR THIS");
+						$('.wn-prayer-cont').text(number+1);
+						$this.data('num', number+1);
+
+					}, 1000);
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					setTimeout(function(){
+						$this.removeClass('loading').text("Pray For This");
+					}, 1000);
+				}
+			});
+		});
 	// End PrayBox
 });
 })( jQuery );
