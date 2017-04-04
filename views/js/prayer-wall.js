@@ -105,7 +105,7 @@ $(document).ready(function($) {
 
 					setTimeout(function() {
 						$this.removeClass('loading').text("I PRAYED FOR THIS");
-						$('.wn-prayer-cont').text(number+1);
+						$this.closest('.wm-prayer-inner').find('.wn-prayer-cont').text(number+1);
 						$this.data('num', number+1);
 
 					}, 1000);

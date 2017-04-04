@@ -14,8 +14,8 @@
 class Wnpw_Shortcode {
 	
 	public function init() {
-		add_shortcode( 'prayer-wall-submit', array( $this, 'shortcode_submit' ) );
-		add_shortcode( 'prayer-wall-form', array( $this, 'shortcode_form' ) );
+		add_shortcode( 'prayer-form', array( $this, 'shortcode_submit' ) );
+		add_shortcode( 'prayer-wall', array( $this, 'shortcode_form' ) );
 	}
 
 	public function shortcode_submit( $atts ) {
@@ -89,11 +89,11 @@ class Wnpw_Shortcode {
 					
 					$out .= '<div class="wm-prayer-container col-md-5">
 								<div class="wm-prayer-inner">
-									<h3><em> '. get_the_title() .' </em></h3>
+									<h3><em> '. esc_html(  get_the_title() ).' </em></h3>
 									<div class="wm-prayer-info">
 										<span class="num-submitted">
 											<i class="icon-calendar"></i>
-											'. get_the_date() .'
+											'. esc_html(  get_the_date() ) .'
 										</span>
 										<span class="num-prayers">
 											<i class="icon-profile-male"></i>
@@ -107,8 +107,8 @@ class Wnpw_Shortcode {
 										'. esc_attr( $values['0'] ) . esc_attr( $values['1'] ) .'
 									</span>
 									<a href="#" class="wm-pray-request-button" data-post=" '. $post->ID .' " data-num="'. $prayed . '" >' . esc_attr__( 'Pray for this', 'wnpw' ). '</a>
-								<div>
-							<div>';
+								</div>
+							</div>';
 				}
 				wp_reset_postdata();
 			}

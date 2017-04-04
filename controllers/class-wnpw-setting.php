@@ -51,21 +51,14 @@ if ( !class_exists( 'Wnpw_Settings' ) ):
                     'label'             => __( 'Submit Form ShortCode', 'wnpw' ),
                     'desc'              => __( 'Copy this code and implent in your pages.', 'wnpw' ),
                     'type'              => 'text',
-                    'default'           => '[prayer-wall-submit]'
-                    ),                
-                array(
-                    'name'              => 'wnpw_form',
-                    'label'             => __( 'Pray List ShortCode', 'wnpw' ),
-                    'desc'              => __( 'Copy this code and implent in your pages.', 'wnpw' ),
-                    'type'              => 'text',
-                    'default'           => '[prayer-wall-form]'
-                ),                
+                    'default'           => '[prayer-form]'
+                    ),                              
                 array(
                     'name'              => 'wnpw_form',
                     'label'             => __( 'Prayer ShortCode', 'wnpw' ),
                     'desc'              => __( 'Copy this code and implent in your pages.', 'wnpw' ),
                     'type'              => 'text',
-                    'default'           => '[prayer-wall-form]'
+                    'default'           => '[prayer-wall]'
     			),
                 array(
                     'name'              => 'wnpw',

@@ -1,0 +1,190 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Prayer Wall\n"
+"POT-Creation-Date: 2017-04-04 11:43+0430\n"
+"PO-Revision-Date: 2017-04-04 11:43+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wp-prayer-wall.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: controllers/class-wnpw-posttype.php:25
+msgctxt "post type general name"
+msgid "Prayer Wall"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:26
+msgctxt "post type singular name"
+msgid "prayerwall"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:27
+msgctxt "admin menu"
+msgid "Prayer Wall"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:28
+msgctxt "add new on admin bar"
+msgid "Prayer Wall"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:29
+msgctxt "book"
+msgid "Add New"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:30
+msgid "Add New Pray"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:31
+msgid "New Pray"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:32
+msgid "Edit Pray"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:33
+msgid "View Pray"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:34
+msgid "All Prays"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:35
+msgid "Search Pray"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:36
+msgid "Parent Pray:"
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:37
+msgid "No Pray found."
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:38
+msgid "No Pray found in Trash."
+msgstr ""
+
+#: controllers/class-wnpw-posttype.php:43
+msgid "Prayer Wall."
+msgstr ""
+
+#: controllers/class-wnpw-setting.php:29
+msgid "Setting"
+msgstr ""
+
+#: controllers/class-wnpw-setting.php:36
+msgid "General Settings"
+msgstr ""
+
+#: controllers/class-wnpw-setting.php:51
+msgid "Submit Form ShortCode"
+msgstr ""
+
+#: controllers/class-wnpw-setting.php:52 controllers/class-wnpw-setting.php:59
+msgid "Copy this code and implent in your pages."
+msgstr ""
+
+#: controllers/class-wnpw-setting.php:58
+msgid "Prayer ShortCode"
+msgstr ""
+
+#: controllers/class-wnpw-setting.php:65
+msgid "Auto Publish Pray"
+msgstr ""
+
+#: controllers/class-wnpw-setting.php:66
+msgid "Defult is pending and all pray wait for admin verification."
+msgstr ""
+
+#: controllers/class-wnpw-settingapi.php:276
+msgid "Choose Best Image"
+msgstr ""
+
+#: includes/class-wnpw-meta.php:32
+msgid "Prayer Information"
+msgstr ""
+
+#: includes/class-wnpw-meta.php:50 includes/class-wnpw-shortcode.php:31
+msgid "First Name:"
+msgstr ""
+
+#: includes/class-wnpw-meta.php:53 includes/class-wnpw-shortcode.php:36
+msgid "Last Name:"
+msgstr ""
+
+#: includes/class-wnpw-meta.php:56 includes/class-wnpw-shortcode.php:41
+msgid "Email Address:"
+msgstr ""
+
+#: includes/class-wnpw-meta.php:59 includes/class-wnpw-shortcode.php:46
+msgid "Prayer Request Title:"
+msgstr ""
+
+#: includes/class-wnpw-meta.php:62 includes/class-wnpw-shortcode.php:51
+msgid "Prayer Request:"
+msgstr ""
+
+#: includes/class-wnpw-public.php:50
+msgid "CLOSE YOUR PRAYER REQUEST "
+msgstr ""
+
+#: includes/class-wnpw-public.php:51
+msgid "OPEN YOUR PRAYER REQUEST"
+msgstr ""
+
+#: includes/class-wnpw-shortcode.php:26
+msgid "CLOSE YOUR PRAYER REQUEST"
+msgstr ""
+
+#: includes/class-wnpw-shortcode.php:56
+msgid "Submit My Prayer Request"
+msgstr ""
+
+#: includes/class-wnpw-shortcode.php:60
+msgid "Your pray is sent please wait for verification!"
+msgstr ""
+
+#: includes/class-wnpw-shortcode.php:100
+msgid "Prayed for <span class=\"wn-prayer-cont\"> "
+msgstr ""
+
+#: includes/class-wnpw-shortcode.php:109
+msgid "Pray for this"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Prayer Wall"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://webnus.biz"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Add awesome prayer wall to your wordpress site."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Webnus"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://Webnus.biz/"
+msgstr ""

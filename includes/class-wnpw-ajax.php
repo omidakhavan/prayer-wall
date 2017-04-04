@@ -27,11 +27,11 @@ class Wnpw_Ajax {
 
 		// security check
 		check_ajax_referer( 'wnpw-ajax', 'security' );
-
+		$post_status = wnpw_get_option( 'wnpw','general_tab' );
 		// insert post
 		$post = array(
 			'post_title' => sanitize_text_field( $_POST['title'] ),
-			'post_status' => 'pending',
+			'post_status' => $post_status,
 			'post_type' => 'prayerwall',
 		);
 		$postid = wp_insert_post( $post );
@@ -51,6 +51,16 @@ class Wnpw_Ajax {
 		check_ajax_referer( 'wnpw-ajax', 'security' );
 		update_post_meta( sanitize_text_field( $_POST['post_id'] ) , 'prayer-wall-count', $_POST['number'] );
 
+	}
+
+	public function wnpw_get_option( $option, $section, $default = '' ) {
+		if ( empty( $option ) )
+			return;
+		$options = get_option( $section );
+		if ( isset( $options[$option] ) ) {
+			return $options[$option];
+		}
+		return $default;
 	}
 
 }
