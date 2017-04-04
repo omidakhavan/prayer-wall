@@ -12,7 +12,7 @@ $(document).ready(function($) {
 		$('.pbx-formfield label').on('click', function() {
 			$(this).parent().find("textarea[name^='pbx']").focus();
 		});
-
+		
 		// prayer butoon when clicked
 		$('.wn-prayer-request').click(function(event) {
 			// fallout attr
@@ -30,14 +30,20 @@ $(document).ready(function($) {
 		});
 
 		// input when clicked placeholders got hidden
-		$("input[name^='pbx'],textarea[name^='pbx']").on('focus', function() {
-		    var $this = $(this);
-		    $this.parent().find('label').css('margin-top', '-20px');
-		    $this.closest('.pbx-formfield').addClass('pbx-active');
-		}).on('blur',function(){
-		    var $this = $(this);
-		    $this.parent().find('label').css('margin-top', '0px');
-		    $this.closest('.pbx-formfield').removeClass('pbx-active');
+		$('.pbx-formfield input, .pbx-formfield textarea').on('click', function() {
+			var $this = $(this).closest('.pbx-formfield').find('label');
+			$this.css('margin-top', '-20px');
+			$(this).closest('.pbx-formfield').addClass('pbx-active');
+		});
+
+		$('.pbx-formfield input, .pbx-formfield textarea').focusout(function(event) {
+			var $this = $(this).closest('.pbx-formfield').find('label');
+			if ( $(this).val() == '' ) {
+				$(this).closest('.pbx-formfield').removeClass('pbx-active');
+				$this.css('margin-top', '0px');
+			} else {
+				$this.css('margin-top', '-20px');
+			}
 		});
 
 		// submit prayer wall form 

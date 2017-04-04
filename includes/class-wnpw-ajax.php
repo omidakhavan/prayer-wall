@@ -20,14 +20,15 @@ class Wnpw_Ajax {
 
 		// prayer button on form
 		add_action('wp_ajax_wnpwprayed',array ( $this , 'ajaxprayer' ) );
-		add_action('wp_ajax_nopriv_wnpwprayed',array ( $this , 'ajaxprayer' ) );
+		add_action('wp_ajax_nopriv_wnpwprayed',array ( $this , 'ajaxprayer' ) );				
 	}
 
 	public function ajaxwall(){
 
 		// security check
 		check_ajax_referer( 'wnpw-ajax', 'security' );
-		$post_status = wnpw_get_option( 'wnpw','general_tab' );
+		$post_s = $this->wnpw_get_option( 'wnpw','general_tab' );
+		$post_status = isset($post_s) ? $post_s : 'pending';
 		// insert post
 		$post = array(
 			'post_title' => sanitize_text_field( $_POST['title'] ),
